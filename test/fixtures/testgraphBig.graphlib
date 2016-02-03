@@ -1,0 +1,750 @@
+{
+  "options": {
+    "directed": true,
+    "multigraph": true,
+    "compound": true
+  },
+  "nodes": [
+    {
+      "v": "PARENT",
+      "value": {
+        "rules": [
+          {
+            "inputs": [
+              {
+                "type": "constant",
+                "value": 1,
+                "name": "a1"
+              },
+              {
+                "type": "constant",
+                "value": 1,
+                "name": "a2"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "constant",
+                "value": 1,
+                "name": "skip"
+              },
+              {
+                "type": "constant",
+                "value": 0,
+                "name": "a"
+              },
+              {
+                "type": "constant",
+                "value": 0,
+                "name": "b"
+              }
+            ]
+          },
+          {
+            "inputs": [
+              {
+                "type": "variable",
+                "value": "a",
+                "name": "a1"
+              },
+              {
+                "type": "constant",
+                "value": 1,
+                "name": "a2"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "variable",
+                "value": "a",
+                "name": "skip"
+              },
+              {
+                "type": "constant",
+                "value": 0,
+                "name": "a"
+              },
+              {
+                "type": "constant",
+                "value": 0,
+                "name": "b"
+              }
+            ]
+          },
+          {
+            "inputs": [
+              {
+                "type": "constant",
+                "value": 1,
+                "name": "a1"
+              },
+              {
+                "type": "variable",
+                "value": "b",
+                "name": "a2"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "variable",
+                "value": "b",
+                "name": "skip"
+              },
+              {
+                "type": "constant",
+                "value": 0,
+                "name": "a"
+              },
+              {
+                "type": "constant",
+                "value": 0,
+                "name": "b"
+              }
+            ]
+          },
+          {
+            "inputs": [
+              {
+                "type": "variable",
+                "value": "a",
+                "name": "a1"
+              },
+              {
+                "type": "variable",
+                "value": "b",
+                "name": "a2"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "constant",
+                "value": 0,
+                "name": "skip"
+              },
+              {
+                "type": "variable",
+                "value": "a",
+                "name": "a"
+              },
+              {
+                "type": "variable",
+                "value": "b",
+                "name": "b"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "v": "0_EQUAL",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/equal",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "1_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "2_EQUAL",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/equal",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "3_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "4_AND",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/and",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "5_EQUAL",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/equal",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "6_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "7_EQUAL",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/equal",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "8_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "9_NOT",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/not",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "10_AND",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/and",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "11_NOT",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/not",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "12_AND",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/and",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "13_OR",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/or",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "14_OR",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/or",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "15_NOT",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/not",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "16_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "17_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "18_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "19_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "20_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "21_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "22_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "23_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "24_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "25_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "26_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "27_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "28_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "29_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "30_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "31_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "32_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "33_CONST",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/const",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "34_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "35_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT"
+      },
+      "parent": "PARENT"
+    }
+  ],
+  "edges": [
+    {
+      "v": "PARENT",
+      "w": "0_EQUAL",
+      "value": "a1"
+    },
+    {
+      "v": "1_CONST",
+      "w": "0_EQUAL"
+    },
+    {
+      "v": "PARENT",
+      "w": "2_EQUAL",
+      "value": "a2"
+    },
+    {
+      "v": "3_CONST",
+      "w": "2_EQUAL"
+    },
+    {
+      "v": "0_EQUAL",
+      "w": "4_AND"
+    },
+    {
+      "v": "2_EQUAL",
+      "w": "4_AND"
+    },
+    {
+      "v": "PARENT",
+      "w": "5_EQUAL",
+      "value": "a2"
+    },
+    {
+      "v": "6_CONST",
+      "w": "5_EQUAL"
+    },
+    {
+      "v": "PARENT",
+      "w": "7_EQUAL",
+      "value": "a1"
+    },
+    {
+      "v": "8_CONST",
+      "w": "7_EQUAL"
+    },
+    {
+      "v": "4_AND",
+      "w": "9_NOT"
+    },
+    {
+      "v": "9_NOT",
+      "w": "10_AND"
+    },
+    {
+      "v": "5_EQUAL",
+      "w": "10_AND"
+    },
+    {
+      "v": "4_AND",
+      "w": "11_NOT"
+    },
+    {
+      "v": "11_NOT",
+      "w": "12_AND"
+    },
+    {
+      "v": "7_EQUAL",
+      "w": "12_AND"
+    },
+    {
+      "v": "4_AND",
+      "w": "13_OR"
+    },
+    {
+      "v": "10_AND",
+      "w": "13_OR"
+    },
+    {
+      "v": "12_AND",
+      "w": "14_OR"
+    },
+    {
+      "v": "13_OR",
+      "w": "14_OR"
+    },
+    {
+      "v": "14_OR",
+      "w": "15_NOT"
+    },
+    {
+      "v": "17_CONST",
+      "w": "16_DEMUX"
+    },
+    {
+      "v": "4_AND",
+      "w": "16_DEMUX"
+    },
+    {
+      "v": "16_DEMUX",
+      "w": "PARENT",
+      "value": "skip"
+    },
+    {
+      "v": "19_CONST",
+      "w": "18_DEMUX"
+    },
+    {
+      "v": "4_AND",
+      "w": "18_DEMUX"
+    },
+    {
+      "v": "18_DEMUX",
+      "w": "PARENT",
+      "value": "a"
+    },
+    {
+      "v": "21_CONST",
+      "w": "20_DEMUX"
+    },
+    {
+      "v": "4_AND",
+      "w": "20_DEMUX"
+    },
+    {
+      "v": "20_DEMUX",
+      "w": "PARENT",
+      "value": "b"
+    },
+    {
+      "v": "PARENT",
+      "w": "22_DEMUX",
+      "value": "a1"
+    },
+    {
+      "v": "10_AND",
+      "w": "22_DEMUX"
+    },
+    {
+      "v": "22_DEMUX",
+      "w": "PARENT",
+      "value": "skip"
+    },
+    {
+      "v": "24_CONST",
+      "w": "23_DEMUX"
+    },
+    {
+      "v": "10_AND",
+      "w": "23_DEMUX"
+    },
+    {
+      "v": "23_DEMUX",
+      "w": "PARENT",
+      "value": "a"
+    },
+    {
+      "v": "26_CONST",
+      "w": "25_DEMUX"
+    },
+    {
+      "v": "10_AND",
+      "w": "25_DEMUX"
+    },
+    {
+      "v": "25_DEMUX",
+      "w": "PARENT",
+      "value": "b"
+    },
+    {
+      "v": "PARENT",
+      "w": "27_DEMUX",
+      "value": "a2"
+    },
+    {
+      "v": "12_AND",
+      "w": "27_DEMUX"
+    },
+    {
+      "v": "27_DEMUX",
+      "w": "PARENT",
+      "value": "skip"
+    },
+    {
+      "v": "29_CONST",
+      "w": "28_DEMUX"
+    },
+    {
+      "v": "12_AND",
+      "w": "28_DEMUX"
+    },
+    {
+      "v": "28_DEMUX",
+      "w": "PARENT",
+      "value": "a"
+    },
+    {
+      "v": "31_CONST",
+      "w": "30_DEMUX"
+    },
+    {
+      "v": "12_AND",
+      "w": "30_DEMUX"
+    },
+    {
+      "v": "30_DEMUX",
+      "w": "PARENT",
+      "value": "b"
+    },
+    {
+      "v": "33_CONST",
+      "w": "32_DEMUX"
+    },
+    {
+      "v": "15_NOT",
+      "w": "32_DEMUX"
+    },
+    {
+      "v": "32_DEMUX",
+      "w": "PARENT",
+      "value": "skip"
+    },
+    {
+      "v": "PARENT",
+      "w": "34_DEMUX",
+      "value": "a1"
+    },
+    {
+      "v": "15_NOT",
+      "w": "34_DEMUX"
+    },
+    {
+      "v": "34_DEMUX",
+      "w": "PARENT",
+      "value": "a"
+    },
+    {
+      "v": "PARENT",
+      "w": "35_DEMUX",
+      "value": "a2"
+    },
+    {
+      "v": "15_NOT",
+      "w": "35_DEMUX"
+    },
+    {
+      "v": "35_DEMUX",
+      "w": "PARENT",
+      "value": "b"
+    }
+  ]
+}

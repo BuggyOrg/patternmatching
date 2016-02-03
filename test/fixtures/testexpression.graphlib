@@ -1,0 +1,30 @@
+{
+  "options": {
+    "directed": true,
+    "multigraph": true,
+    "compound": true
+  },
+  "nodes": [
+  {
+    "v": "PARENT",
+    "value": {
+      "rules" : [
+        {
+          "inputs": [{"type" : "constant", "value" : 1, "name": "a1IN"}],
+          "outputs": [{"type" : "constant", "value" : 1, "name": "a1OUT"}]
+        },
+        {
+          "inputs": [{"type" : "variable", "value" : "n", "name": "a2IN"}],
+          "outputs": [{"type" : "variable", "value" : "n", "name": "a2OUT"}]
+        },
+        {
+          "inputs": [{"type" : "constant", "value" : 0, "name": "a0IN"}],
+          "outputs": [{"type" : "constant", "value" : 0, "name": "a0OUT"}]
+        }
+      ]
+    }
+  }
+  ],
+  "edges": [
+  ]
+}
