@@ -10,16 +10,16 @@
     "value": {
       "rules" : [
         {
-          "inputs": [{"type" : "constant", "value" : 1, "name": "a1IN"}],
-          "outputs": [{"type" : "constant", "value" : 1, "name": "a1OUT"}]
+          "inputs": [{"type" : "constant", "value" : 1, "name": "a1"}],
+          "outputs": [{"type" : "constant", "value" : 1, "name": "a1"}]
         },
         {
-          "inputs": [{"type" : "variable", "value" : "n", "name": "a2IN"}],
-          "outputs": [{"type" : "variable", "value" : "n", "name": "a2OUT"}]
+          "inputs": [{"type" : "variable", "value" : "n", "name": "a2"}],
+          "outputs": [{"type" : "variable", "value" : "n", "name": "a2"}]
         },
         {
-          "inputs": [{"type" : "constant", "value" : 0, "name": "a0IN"}],
-          "outputs": [{"type" : "constant", "value" : 0, "name": "a0OUT"}]
+          "inputs": [{"type" : "constant", "value" : 0, "name": "a0"}],
+          "outputs": [{"type" : "constant", "value" : 0, "name": "a0"}]
         }
       ]
     }

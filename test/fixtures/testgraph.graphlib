@@ -14,14 +14,14 @@
               {
                 "type": "constant",
                 "value": 1,
-                "name": "a1IN"
+                "name": "a1"
               }
             ],
             "outputs": [
               {
                 "type": "constant",
                 "value": 1,
-                "name": "a1OUT"
+                "name": "a1"
               }
             ]
           },
@@ -30,14 +30,14 @@
               {
                 "type": "variable",
                 "value": "n",
-                "name": "a2IN"
+                "name": "a2"
               }
             ],
             "outputs": [
               {
                 "type": "variable",
                 "value": "n",
-                "name": "a2OUT"
+                "name": "a2"
               }
             ]
           },
@@ -46,14 +46,14 @@
               {
                 "type": "constant",
                 "value": 0,
-                "name": "a0IN"
+                "name": "a0"
               }
             ],
             "outputs": [
               {
                 "type": "constant",
                 "value": 0,
-                "name": "a0OUT"
+                "name": "a0"
               }
             ]
           }
@@ -175,72 +175,130 @@
     {
       "v": "PARENT",
       "w": "0_EQUAL",
-      "value": "a1IN"
+      "value": {
+        "outPort": "a1",
+        "inPort": "i1"
+      }
     },
     {
       "v": "1_CONST",
-      "w": "0_EQUAL"
+      "w": "0_EQUAL",
+      "value": {
+        "outPort": "const",
+        "inPort": "i2"
+      }
     },
     {
       "v": "PARENT",
       "w": "2_EQUAL",
-      "value": "a0IN"
+      "value": {
+        "outPort": "a0",
+        "inPort": "i1"
+      }
     },
     {
       "v": "3_CONST",
-      "w": "2_EQUAL"
+      "w": "2_EQUAL",
+      "value": {
+        "outPort": "const",
+        "inPort": "i2"
+      }
     },
     {
       "v": "0_EQUAL",
-      "w": "4_OR"
+      "w": "4_OR",
+      "value": {
+        "outPort": "eq",
+        "inPort": "i1"
+      }
     },
     {
       "v": "2_EQUAL",
-      "w": "4_OR"
+      "w": "4_OR",
+      "value": {
+        "outPort": "eq",
+        "inPort": "i2"
+      }
     },
     {
       "v": "4_OR",
-      "w": "5_NOT"
+      "w": "5_NOT",
+      "value": {
+        "outPort": "or",
+        "inPort": "input"
+      }
     },
     {
       "v": "7_CONST",
-      "w": "6_DEMUX"
+      "w": "6_DEMUX",
+      "value": {
+        "outPort": "const",
+        "inPort": "input"
+      }
     },
     {
       "v": "0_EQUAL",
-      "w": "6_DEMUX"
+      "w": "6_DEMUX",
+      "value": {
+        "outPort": "eq",
+        "inPort": "control"
+      }
     },
     {
       "v": "6_DEMUX",
       "w": "PARENT",
-      "value": "a1OUT"
+      "value": {
+        "outPort": "outTrue",
+        "inPort": "a1"
+      }
     },
     {
       "v": "9_CONST",
-      "w": "8_DEMUX"
+      "w": "8_DEMUX",
+      "value": {
+        "outPort": "const",
+        "inPort": "input"
+      }
     },
     {
       "v": "2_EQUAL",
-      "w": "8_DEMUX"
+      "w": "8_DEMUX",
+      "value": {
+        "outPort": "eq",
+        "inPort": "control"
+      }
     },
     {
       "v": "8_DEMUX",
       "w": "PARENT",
-      "value": "a0OUT"
+      "value": {
+        "outPort": "outTrue",
+        "inPort": "a0"
+      }
     },
     {
       "v": "PARENT",
       "w": "10_DEMUX",
-      "value": "a2IN"
+      "value": {
+        "outPort": "a2",
+        "inPort": "input"
+      }
     },
     {
       "v": "5_NOT",
-      "w": "10_DEMUX"
+      "w": "10_DEMUX",
+      "value": {
+        "outPort": "output",
+        "inPort": "control"
+      }
     },
     {
       "v": "10_DEMUX",
       "w": "PARENT",
-      "value": "a2OUT"
+      "value": {
+        "outPort": "outTrue",
+        "inPort": "a2"
+      }
     }
   ]
 }
