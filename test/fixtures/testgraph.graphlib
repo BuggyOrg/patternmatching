@@ -13,14 +13,14 @@
             "inputs": [
               {
                 "type": "constant",
-                "value": 1,
+                "value/const": 1,
                 "name": "a1"
               }
             ],
             "outputs": [
               {
                 "type": "constant",
-                "value": 1,
+                "value/const": 1,
                 "name": "a1"
               }
             ]
@@ -45,14 +45,14 @@
             "inputs": [
               {
                 "type": "constant",
-                "value": 0,
+                "value/const": 0,
                 "name": "a0"
               }
             ],
             "outputs": [
               {
                 "type": "constant",
-                "value": 0,
+                "value/const": 0,
                 "name": "a0"
               }
             ]
@@ -66,42 +66,24 @@
         "nodeType": "process",
         "meta": "logic/equal",
         "type": "atomic",
-        "parent": "PARENT"
+        "parent": "PARENT",
+        "value": 1
       },
       "parent": "PARENT"
     },
     {
-      "v": "1_CONST",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/const",
-        "type": "atomic",
-        "parent": "PARENT"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "2_EQUAL",
+      "v": "1_EQUAL",
       "value": {
         "nodeType": "process",
         "meta": "logic/equal",
         "type": "atomic",
-        "parent": "PARENT"
+        "parent": "PARENT",
+        "value": 0
       },
       "parent": "PARENT"
     },
     {
-      "v": "3_CONST",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/const",
-        "type": "atomic",
-        "parent": "PARENT"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "4_OR",
+      "v": "2_OR",
       "value": {
         "nodeType": "process",
         "meta": "logic/or",
@@ -111,7 +93,7 @@
       "parent": "PARENT"
     },
     {
-      "v": "5_NOT",
+      "v": "3_NOT",
       "value": {
         "nodeType": "process",
         "meta": "logic/not",
@@ -121,47 +103,29 @@
       "parent": "PARENT"
     },
     {
+      "v": "4_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT",
+        "value": 1
+      },
+      "parent": "PARENT"
+    },
+    {
+      "v": "5_DEMUX",
+      "value": {
+        "nodeType": "process",
+        "meta": "logic/demux",
+        "type": "atomic",
+        "parent": "PARENT",
+        "value": 0
+      },
+      "parent": "PARENT"
+    },
+    {
       "v": "6_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "parent": "PARENT"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "7_CONST",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/const",
-        "type": "atomic",
-        "parent": "PARENT"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "8_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "parent": "PARENT"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "9_CONST",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/const",
-        "type": "atomic",
-        "parent": "PARENT"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "10_DEMUX",
       "value": {
         "nodeType": "process",
         "meta": "logic/demux",
@@ -181,71 +145,47 @@
       }
     },
     {
-      "v": "1_CONST",
-      "w": "0_EQUAL",
-      "value": {
-        "outPort": "const",
-        "inPort": "i2"
-      }
-    },
-    {
       "v": "PARENT",
-      "w": "2_EQUAL",
+      "w": "1_EQUAL",
       "value": {
         "outPort": "a0",
         "inPort": "i1"
       }
     },
     {
-      "v": "3_CONST",
-      "w": "2_EQUAL",
-      "value": {
-        "outPort": "const",
-        "inPort": "i2"
-      }
-    },
-    {
       "v": "0_EQUAL",
-      "w": "4_OR",
+      "w": "2_OR",
       "value": {
         "outPort": "eq",
         "inPort": "i1"
       }
     },
     {
-      "v": "2_EQUAL",
-      "w": "4_OR",
+      "v": "1_EQUAL",
+      "w": "2_OR",
       "value": {
         "outPort": "eq",
         "inPort": "i2"
       }
     },
     {
-      "v": "4_OR",
-      "w": "5_NOT",
+      "v": "2_OR",
+      "w": "3_NOT",
       "value": {
         "outPort": "or",
         "inPort": "input"
       }
     },
     {
-      "v": "7_CONST",
-      "w": "6_DEMUX",
-      "value": {
-        "outPort": "const",
-        "inPort": "input"
-      }
-    },
-    {
       "v": "0_EQUAL",
-      "w": "6_DEMUX",
+      "w": "4_DEMUX",
       "value": {
         "outPort": "eq",
         "inPort": "control"
       }
     },
     {
-      "v": "6_DEMUX",
+      "v": "4_DEMUX",
       "w": "PARENT",
       "value": {
         "outPort": "outTrue",
@@ -253,23 +193,15 @@
       }
     },
     {
-      "v": "9_CONST",
-      "w": "8_DEMUX",
-      "value": {
-        "outPort": "const",
-        "inPort": "input"
-      }
-    },
-    {
-      "v": "2_EQUAL",
-      "w": "8_DEMUX",
+      "v": "1_EQUAL",
+      "w": "5_DEMUX",
       "value": {
         "outPort": "eq",
         "inPort": "control"
       }
     },
     {
-      "v": "8_DEMUX",
+      "v": "5_DEMUX",
       "w": "PARENT",
       "value": {
         "outPort": "outTrue",
@@ -278,22 +210,22 @@
     },
     {
       "v": "PARENT",
-      "w": "10_DEMUX",
+      "w": "6_DEMUX",
       "value": {
         "outPort": "a2",
         "inPort": "input"
       }
     },
     {
-      "v": "5_NOT",
-      "w": "10_DEMUX",
+      "v": "3_NOT",
+      "w": "6_DEMUX",
       "value": {
         "outPort": "output",
         "inPort": "control"
       }
     },
     {
-      "v": "10_DEMUX",
+      "v": "6_DEMUX",
       "w": "PARENT",
       "value": {
         "outPort": "outTrue",

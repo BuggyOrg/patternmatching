@@ -10,30 +10,30 @@
     "value": {
       "rules" : [
         {
-          "inputs": [{"type" : "constant", "value" : 1, "name": "a1"},
-          {"type" : "constant", "value" : 1, "name": "a2"}],
-          "outputs": [{"type" : "constant", "value" : 1, "name": "skip"},
-          {"type" : "constant", "value" : 0, "name": "a"},
-          {"type" : "constant", "value" : 0, "name": "b"}]
+          "inputs": [{"type" : "constant", "value/const" : 1, "name": "a1"},
+          {"type" : "constant", "value/const" : 1, "name": "a2"}],
+          "outputs": [{"type" : "constant", "value/const" : 1, "name": "skip"},
+          {"type" : "constant", "value/const" : 0, "name": "a"},
+          {"type" : "constant", "value/const" : 0, "name": "b"}]
         },
         {
           "inputs": [{"type" : "variable", "value" : "a", "name": "a1"},
-          {"type" : "constant", "value" : 1, "name": "a2"}],
+          {"type" : "constant", "value/const" : 1, "name": "a2"}],
           "outputs": [{"type" : "variable", "value" : "a", "name": "skip"},
-          {"type" : "constant", "value" : 0, "name": "a"},
-          {"type" : "constant", "value" : 0, "name": "b"}]
+          {"type" : "constant", "value/const" : 0, "name": "a"},
+          {"type" : "constant", "value/const" : 0, "name": "b"}]
         },
         {
-          "inputs": [{"type" : "constant", "value" : 1, "name": "a1"},
+          "inputs": [{"type" : "constant", "value/const" : 1, "name": "a1"},
           {"type" : "variable", "value" : "b", "name": "a2"}],
           "outputs": [{"type" : "variable", "value" : "b", "name": "skip"},
-          {"type" : "constant", "value" : 0, "name": "a"},
-          {"type" : "constant", "value" : 0, "name": "b"}]
+          {"type" : "constant", "value/const" : 0, "name": "a"},
+          {"type" : "constant", "value/const" : 0, "name": "b"}]
         },
         {
           "inputs": [{"type" : "variable", "value" : "a", "name": "a1"},
           {"type" : "variable", "value" : "b", "name": "a2"}],
-          "outputs": [{"type" : "constant", "value" : 0, "name": "skip"},
+          "outputs": [{"type" : "constant", "value/const" : 0, "name": "skip"},
           {"type" : "variable", "value" : "a", "name": "a"},
           {"type" : "variable", "value" : "b", "name": "b"}]
         }
