@@ -13,7 +13,7 @@ describe('', function () {
       patternMatching.convert(expression)
     ]).then((result) => {
       var d = result[0]
-      // fs.writeFileSync('test/fixtures/testgraph.graphlib', JSON.stringify(grlib.json.write(d), null, 2))
+      fs.writeFileSync('test/fixtures/testgraph.graphlib', JSON.stringify(grlib.json.write(d), null, 2))
       var curGraph = grlib.json.write(d)
       var cmpGraph = JSON.parse(fs.readFileSync('test/fixtures/testgraph.graphlib'))
 
@@ -26,7 +26,7 @@ describe('', function () {
       patternMatching.convert(expressionBig)
     ]).then((result) => {
       var dBig = result[0]
-      // fs.writeFileSync('test/fixtures/testgraphBig.graphlib', JSON.stringify(grlib.json.write(dBig), null, 2))
+      fs.writeFileSync('test/fixtures/testgraphBig.graphlib', JSON.stringify(grlib.json.write(dBig), null, 2))
       var curGraphBig = grlib.json.write(dBig)
       var cmpGraphBig = JSON.parse(fs.readFileSync('test/fixtures/testgraphBig.graphlib'))
 

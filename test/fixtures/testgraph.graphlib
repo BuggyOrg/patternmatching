@@ -67,7 +67,12 @@
         "meta": "logic/equal",
         "type": "atomic",
         "parent": "PARENT",
-        "value": 1
+        "values": [
+          {
+            "value": 1,
+            "port": "i2"
+          }
+        ]
       },
       "parent": "PARENT"
     },
@@ -78,7 +83,12 @@
         "meta": "logic/equal",
         "type": "atomic",
         "parent": "PARENT",
-        "value": 0
+        "values": [
+          {
+            "value": 0,
+            "port": "i2"
+          }
+        ]
       },
       "parent": "PARENT"
     },
@@ -109,7 +119,12 @@
         "meta": "logic/demux",
         "type": "atomic",
         "parent": "PARENT",
-        "value": 1
+        "values": [
+          {
+            "value": 1,
+            "port": "input"
+          }
+        ]
       },
       "parent": "PARENT"
     },
@@ -120,7 +135,12 @@
         "meta": "logic/demux",
         "type": "atomic",
         "parent": "PARENT",
-        "value": 0
+        "values": [
+          {
+            "value": 0,
+            "port": "input"
+          }
+        ]
       },
       "parent": "PARENT"
     },

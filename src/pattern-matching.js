@@ -83,7 +83,7 @@ export function convert (expression) {
         // create the not node
         var nodeNot = nodeId + '_NOT'
         nodeId++
-        graph.setNode(nodeNot, {nodeType: 'process', meta: 'logic/not', type: 'atomic', parent: 'PARENT'})
+        graph.setNode(nodeNot, {nodeType: 'process', meta: 'logic/not', type: 'atomic'})
         graph.setParent(nodeNot, 'PARENT')
 
         graph.setEdge(lastOr, nodeNot, {'outPort': getOutputs(nodesObj, 'logic/or')[0], 'inPort': getInputs(nodesObj, 'logic/not')[0]})
@@ -91,7 +91,7 @@ export function convert (expression) {
           // create the and node
           var nodeAnd = nodeId + '_AND'
           nodeId++
-          graph.setNode(nodeAnd, {nodeType: 'process', meta: 'logic/and', type: 'atomic', parent: 'PARENT'})
+          graph.setNode(nodeAnd, {nodeType: 'process', meta: 'logic/and', type: 'atomic'})
           graph.setParent(nodeAnd, 'PARENT')
           graph.setEdge(nodeNot, nodeAnd, {'outPort': getOutputs(nodesObj, 'logic/not')[0], 'inPort': getInputs(nodesObj, 'logic/and')[0]})
           graph.setEdge(ruleTriple[r]['endBoolNode'], nodeAnd, {'outPort': getOutputs(nodesObj, graph.node(ruleTriple[r]['endBoolNode'])['meta'])[0], 'inPort': getInputs(nodesObj, 'logic/and')[1]})
@@ -110,9 +110,9 @@ export function convert (expression) {
         var nodeDemux = nodeId + '_DEMUX'
         nodeId++
         if (outports[outport]['type'] === 'constant') {
-          graph.setNode(nodeDemux, {nodeType: 'process', meta: 'logic/demux', type: 'atomic', parent: 'PARENT', value: outports[outport]['value/const']})
+          graph.setNode(nodeDemux, {nodeType: 'process', meta: 'logic/demux', type: 'atomic', values: [{'value': outports[outport]['value/const'], 'port': getInputs(nodesObj, 'logic/demux')[0]}]})
         } else {
-          graph.setNode(nodeDemux, {nodeType: 'process', meta: 'logic/demux', type: 'atomic', parent: 'PARENT'})
+          graph.setNode(nodeDemux, {nodeType: 'process', meta: 'logic/demux', type: 'atomic'})
           var inports = ruleTriple[ru]['rule']['inputs']
           for (var i = 0; i < inports.length; i++) {
             if (inports[i]['value'] === outports[outport]['value']) {
@@ -132,7 +132,7 @@ export function convert (expression) {
 function createEqualAndConst (constValue, edgeName, nodeId, graph, nodesObj) {
   var nodeEqual = nodeId + '_EQUAL'
   nodeId++
-  graph.setNode(nodeEqual, {nodeType: 'process', meta: 'logic/equal', type: 'atomic', parent: 'PARENT', value: constValue})
+  graph.setNode(nodeEqual, {nodeType: 'process', meta: 'logic/equal', type: 'atomic', values: [{'value': constValue, 'port': getInputs(nodesObj, 'logic/equal')[1]}]})
   graph.setParent(nodeEqual, 'PARENT')
   graph.setEdge('PARENT', nodeEqual, {'outPort': edgeName, 'inPort': getInputs(nodesObj, 'logic/equal')[0]})
   return {equalNode: nodeEqual, newNodeId: nodeId}
@@ -144,14 +144,14 @@ function createAtomics (inputs, nodeId, graph, nodeName, nodesObj) {
   }
   var node = nodeId + '_' + nodeName
   nodeId++
-  graph.setNode(node, {nodeType: 'process', meta: 'logic/' + nodeName.toLowerCase(), type: 'atomic', parent: 'PARENT'})
+  graph.setNode(node, {nodeType: 'process', meta: 'logic/' + nodeName.toLowerCase(), type: 'atomic'})
   graph.setParent(node, 'PARENT')
   graph.setEdge(inputs[0], node, {'outPort': getOutputs(nodesObj, graph.node(inputs[0])['meta'])[0], 'inPort': getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[0]})
   graph.setEdge(inputs[1], node, {'outPort': getOutputs(nodesObj, graph.node(inputs[1])['meta'])[0], 'inPort': getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[1]})
   for (var i = 2; i < inputs.length; i++) {
     var newNode = nodeId + '_' + nodeName
     nodeId++
-    graph.setNode(newNode, {nodeType: 'process', meta: 'logic/' + nodeName.toLowerCase(), type: 'atomic', parent: 'PARENT'})
+    graph.setNode(newNode, {nodeType: 'process', meta: 'logic/' + nodeName.toLowerCase(), type: 'atomic'})
     graph.setParent(newNode, 'PARENT')
     graph.setEdge(inputs[i], newNode, {'outPort': getOutputs(nodesObj, graph.node(inputs[i])['meta'])[0], 'inPort': getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[0]})
     graph.setEdge(node, newNode, {'outPort': getOutputs(nodesObj, 'logic/' + nodeName.toLowerCase())[0], 'inPort': getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[1]})
