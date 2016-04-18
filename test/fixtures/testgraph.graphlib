@@ -66,7 +66,6 @@
         "nodeType": "process",
         "meta": "logic/equal",
         "type": "atomic",
-        "parent": "PARENT",
         "values": [
           {
             "value": 1,
@@ -82,7 +81,6 @@
         "nodeType": "process",
         "meta": "logic/equal",
         "type": "atomic",
-        "parent": "PARENT",
         "values": [
           {
             "value": 0,
@@ -97,8 +95,7 @@
       "value": {
         "nodeType": "process",
         "meta": "logic/or",
-        "type": "atomic",
-        "parent": "PARENT"
+        "type": "atomic"
       },
       "parent": "PARENT"
     },
@@ -107,8 +104,7 @@
       "value": {
         "nodeType": "process",
         "meta": "logic/not",
-        "type": "atomic",
-        "parent": "PARENT"
+        "type": "atomic"
       },
       "parent": "PARENT"
     },
@@ -118,7 +114,6 @@
         "nodeType": "process",
         "meta": "logic/demux",
         "type": "atomic",
-        "parent": "PARENT",
         "values": [
           {
             "value": 1,
@@ -134,7 +129,6 @@
         "nodeType": "process",
         "meta": "logic/demux",
         "type": "atomic",
-        "parent": "PARENT",
         "values": [
           {
             "value": 0,
@@ -149,8 +143,7 @@
       "value": {
         "nodeType": "process",
         "meta": "logic/demux",
-        "type": "atomic",
-        "parent": "PARENT"
+        "type": "atomic"
       },
       "parent": "PARENT"
     }

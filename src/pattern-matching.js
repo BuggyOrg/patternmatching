@@ -47,7 +47,6 @@ export function convert (expression) {
           res = createEqualAndConst(inputs[input]['value/const'], inputs[input]['name'], nodeId, graph, nodesObj)
           nodeId = res['newNodeId']
           equalNodes.push(res['equalNode'])
-          // TODO den equal node mit dem and gatter verbinden
         }
       }
       if (equalNodes.length > 1) {

@@ -7,7 +7,8 @@ var fs = require('fs')
 
 var expressionBig = grlib.json.read(JSON.parse(fs.readFileSync('test/fixtures/testexpressionBig.graphlib')))
 var expression = grlib.json.read(JSON.parse(fs.readFileSync('test/fixtures/testexpression.graphlib')))
-describe('', function () {
+
+describe('Pattern Matching', () => {
   it('Fibonacci expression', function () {
     return Promise.all([
       patternMatching.convert(expression)
