@@ -6,20 +6,20 @@
   },
   "nodes": [
   {
-    "v": "PARENT",
+    "v": "match_0",
     "value": {
       "rules" : [
         {
-          "inputs": [{"type" : "constant", "value/const" : 1, "name": "a1"}],
-          "outputs": [{"type" : "constant", "value/const" : 1, "name": "a1"}]
+          "inputs": [{"variable": false, "type" : "number", "value/const" : 1, "name": "a0"}],
+          "outputs": [{"variable": false, "type" : "number", "value/const" : 1, "name": "a1"}]
         },
         {
-          "inputs": [{"type" : "variable", "value" : "n", "name": "a2"}],
-          "outputs": [{"type" : "variable", "value" : "n", "name": "a2"}]
+          "inputs": [{"variable": true, "type" : "number", "value" : "n", "name": "a0"}],
+          "outputs": [{"variable": true, "type" : "number", "value" : "n", "name": "a1"}]
         },
         {
-          "inputs": [{"type" : "constant", "value/const" : 0, "name": "a0"}],
-          "outputs": [{"type" : "constant", "value/const" : 0, "name": "a0"}]
+          "inputs": [{"variable": false, "type" : "number", "value/const" : 0, "name": "a0"}],
+          "outputs": [{"variable": false, "type" : "number", "value/const" : 0, "name": "a1"}]
         }
       ]
     }

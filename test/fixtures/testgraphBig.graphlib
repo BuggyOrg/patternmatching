@@ -6,35 +6,40 @@
   },
   "nodes": [
     {
-      "v": "PARENT",
+      "v": "match_1",
       "value": {
         "rules": [
           {
             "inputs": [
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 1,
                 "name": "a1"
               },
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 1,
                 "name": "a2"
               }
             ],
             "outputs": [
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 1,
                 "name": "skip"
               },
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 0,
                 "name": "a"
               },
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 0,
                 "name": "b"
               }
@@ -43,29 +48,34 @@
           {
             "inputs": [
               {
-                "type": "variable",
+                "variable": true,
+                "type": "number",
                 "value": "a",
                 "name": "a1"
               },
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 1,
                 "name": "a2"
               }
             ],
             "outputs": [
               {
-                "type": "variable",
+                "variable": true,
+                "type": "number",
                 "value": "a",
                 "name": "skip"
               },
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 0,
                 "name": "a"
               },
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 0,
                 "name": "b"
               }
@@ -74,29 +84,34 @@
           {
             "inputs": [
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 1,
                 "name": "a1"
               },
               {
-                "type": "variable",
+                "variable": true,
+                "type": "number",
                 "value": "b",
                 "name": "a2"
               }
             ],
             "outputs": [
               {
-                "type": "variable",
+                "variable": true,
+                "type": "number",
                 "value": "b",
                 "name": "skip"
               },
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 0,
                 "name": "a"
               },
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 0,
                 "name": "b"
               }
@@ -105,686 +120,710 @@
           {
             "inputs": [
               {
-                "type": "variable",
+                "variable": true,
+                "type": "number",
                 "value": "a",
                 "name": "a1"
               },
               {
-                "type": "variable",
+                "variable": true,
+                "type": "number",
                 "value": "b",
                 "name": "a2"
               }
             ],
             "outputs": [
               {
-                "type": "constant",
+                "variable": false,
+                "type": "number",
                 "value/const": 0,
                 "name": "skip"
               },
               {
-                "type": "variable",
+                "variable": true,
+                "type": "number",
                 "value": "a",
                 "name": "a"
               },
               {
-                "type": "variable",
+                "variable": true,
+                "type": "number",
                 "value": "b",
                 "name": "b"
               }
             ]
           }
-        ]
+        ],
+        "nodeType": "process",
+        "atomic": false,
+        "inputPorts": {
+          "a1": "number",
+          "a2": "number"
+        },
+        "outputPorts": {
+          "skip": "number",
+          "a": "number",
+          "b": "number"
+        },
+        "implementation": {
+          "options": {
+            "directed": true,
+            "multigraph": true,
+            "compound": true
+          },
+          "nodes": [
+            {
+              "v": "0_EQUAL",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/equal",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 1,
+                    "port": "i2"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "match_1"
+            },
+            {
+              "v": "a1"
+            },
+            {
+              "v": "1_EQUAL",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/equal",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 1,
+                    "port": "i2"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "a2"
+            },
+            {
+              "v": "2_AND",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/and",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "3_EQUAL",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/equal",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 1,
+                    "port": "i2"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "4_EQUAL",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/equal",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 1,
+                    "port": "i2"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "5_NOT",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/not",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "6_AND",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/and",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "7_NOT",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/not",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "8_AND",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/and",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "9_OR",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/or",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "10_OR",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/or",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "11_NOT",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/not",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "12_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 1,
+                    "port": "input"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "skip"
+            },
+            {
+              "v": "13_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 0,
+                    "port": "input"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "a"
+            },
+            {
+              "v": "14_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 0,
+                    "port": "input"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "b"
+            },
+            {
+              "v": "15_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "16_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 0,
+                    "port": "input"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "17_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 0,
+                    "port": "input"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "18_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "19_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 0,
+                    "port": "input"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "20_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 0,
+                    "port": "input"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "21_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic",
+                "values": [
+                  {
+                    "value": 0,
+                    "port": "input"
+                  }
+                ]
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "22_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            },
+            {
+              "v": "23_DEMUX",
+              "value": {
+                "nodeType": "process",
+                "meta": "logic/demux",
+                "type": "atomic"
+              },
+              "parent": "match_1"
+            }
+          ],
+          "edges": [
+            {
+              "v": "a1",
+              "w": "0_EQUAL",
+              "value": {
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "a2",
+              "w": "1_EQUAL",
+              "value": {
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "0_EQUAL",
+              "w": "2_AND",
+              "value": {
+                "outPort": "eq",
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "1_EQUAL",
+              "w": "2_AND",
+              "value": {
+                "outPort": "eq",
+                "inPort": "i2"
+              }
+            },
+            {
+              "v": "a2",
+              "w": "3_EQUAL",
+              "value": {
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "a1",
+              "w": "4_EQUAL",
+              "value": {
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "2_AND",
+              "w": "5_NOT",
+              "value": {
+                "outPort": "or",
+                "inPort": "input"
+              }
+            },
+            {
+              "v": "5_NOT",
+              "w": "6_AND",
+              "value": {
+                "outPort": "output",
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "3_EQUAL",
+              "w": "6_AND",
+              "value": {
+                "outPort": "eq",
+                "inPort": "i2"
+              }
+            },
+            {
+              "v": "2_AND",
+              "w": "7_NOT",
+              "value": {
+                "outPort": "or",
+                "inPort": "input"
+              }
+            },
+            {
+              "v": "7_NOT",
+              "w": "8_AND",
+              "value": {
+                "outPort": "output",
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "4_EQUAL",
+              "w": "8_AND",
+              "value": {
+                "outPort": "eq",
+                "inPort": "i2"
+              }
+            },
+            {
+              "v": "2_AND",
+              "w": "9_OR",
+              "value": {
+                "outPort": "and",
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "6_AND",
+              "w": "9_OR",
+              "value": {
+                "outPort": "and",
+                "inPort": "i2"
+              }
+            },
+            {
+              "v": "8_AND",
+              "w": "10_OR",
+              "value": {
+                "outPort": "and",
+                "inPort": "i1"
+              }
+            },
+            {
+              "v": "9_OR",
+              "w": "10_OR",
+              "value": {
+                "outPort": "or",
+                "inPort": "i2"
+              }
+            },
+            {
+              "v": "10_OR",
+              "w": "11_NOT",
+              "value": {
+                "outPort": "or",
+                "inPort": "input"
+              }
+            },
+            {
+              "v": "2_AND",
+              "w": "12_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "12_DEMUX",
+              "w": "skip",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "2_AND",
+              "w": "13_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "13_DEMUX",
+              "w": "a",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "2_AND",
+              "w": "14_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "14_DEMUX",
+              "w": "b",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "a1",
+              "w": "15_DEMUX",
+              "value": {
+                "inPort": "input"
+              }
+            },
+            {
+              "v": "6_AND",
+              "w": "15_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "15_DEMUX",
+              "w": "skip",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "6_AND",
+              "w": "16_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "16_DEMUX",
+              "w": "a",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "6_AND",
+              "w": "17_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "17_DEMUX",
+              "w": "b",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "a2",
+              "w": "18_DEMUX",
+              "value": {
+                "inPort": "input"
+              }
+            },
+            {
+              "v": "8_AND",
+              "w": "18_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "18_DEMUX",
+              "w": "skip",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "8_AND",
+              "w": "19_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "19_DEMUX",
+              "w": "a",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "8_AND",
+              "w": "20_DEMUX",
+              "value": {
+                "outPort": "and",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "20_DEMUX",
+              "w": "b",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "11_NOT",
+              "w": "21_DEMUX",
+              "value": {
+                "outPort": "output",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "21_DEMUX",
+              "w": "skip",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "a1",
+              "w": "22_DEMUX",
+              "value": {
+                "inPort": "input"
+              }
+            },
+            {
+              "v": "11_NOT",
+              "w": "22_DEMUX",
+              "value": {
+                "outPort": "output",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "22_DEMUX",
+              "w": "a",
+              "value": {
+                "outPort": "outTrue"
+              }
+            },
+            {
+              "v": "a2",
+              "w": "23_DEMUX",
+              "value": {
+                "inPort": "input"
+              }
+            },
+            {
+              "v": "11_NOT",
+              "w": "23_DEMUX",
+              "value": {
+                "outPort": "output",
+                "inPort": "control"
+              }
+            },
+            {
+              "v": "23_DEMUX",
+              "w": "b",
+              "value": {
+                "outPort": "outTrue"
+              }
+            }
+          ]
+        }
       }
-    },
-    {
-      "v": "0_EQUAL",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/equal",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 1,
-            "port": "i2"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "1_EQUAL",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/equal",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 1,
-            "port": "i2"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "2_AND",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/and",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "3_EQUAL",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/equal",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 1,
-            "port": "i2"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "4_EQUAL",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/equal",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 1,
-            "port": "i2"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "5_NOT",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/not",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "6_AND",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/and",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "7_NOT",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/not",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "8_AND",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/and",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "9_OR",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/or",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "10_OR",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/or",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "11_NOT",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/not",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "12_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 1,
-            "port": "input"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "13_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 0,
-            "port": "input"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "14_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 0,
-            "port": "input"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "15_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "16_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 0,
-            "port": "input"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "17_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 0,
-            "port": "input"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "18_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "19_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 0,
-            "port": "input"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "20_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 0,
-            "port": "input"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "21_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic",
-        "values": [
-          {
-            "value": 0,
-            "port": "input"
-          }
-        ]
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "22_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
-    },
-    {
-      "v": "23_DEMUX",
-      "value": {
-        "nodeType": "process",
-        "meta": "logic/demux",
-        "type": "atomic"
-      },
-      "parent": "PARENT"
     }
   ],
-  "edges": [
-    {
-      "v": "PARENT",
-      "w": "0_EQUAL",
-      "value": {
-        "outPort": "a1",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "PARENT",
-      "w": "1_EQUAL",
-      "value": {
-        "outPort": "a2",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "0_EQUAL",
-      "w": "2_AND",
-      "value": {
-        "outPort": "eq",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "1_EQUAL",
-      "w": "2_AND",
-      "value": {
-        "outPort": "eq",
-        "inPort": "i2"
-      }
-    },
-    {
-      "v": "PARENT",
-      "w": "3_EQUAL",
-      "value": {
-        "outPort": "a2",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "PARENT",
-      "w": "4_EQUAL",
-      "value": {
-        "outPort": "a1",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "2_AND",
-      "w": "5_NOT",
-      "value": {
-        "outPort": "or",
-        "inPort": "input"
-      }
-    },
-    {
-      "v": "5_NOT",
-      "w": "6_AND",
-      "value": {
-        "outPort": "output",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "3_EQUAL",
-      "w": "6_AND",
-      "value": {
-        "outPort": "eq",
-        "inPort": "i2"
-      }
-    },
-    {
-      "v": "2_AND",
-      "w": "7_NOT",
-      "value": {
-        "outPort": "or",
-        "inPort": "input"
-      }
-    },
-    {
-      "v": "7_NOT",
-      "w": "8_AND",
-      "value": {
-        "outPort": "output",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "4_EQUAL",
-      "w": "8_AND",
-      "value": {
-        "outPort": "eq",
-        "inPort": "i2"
-      }
-    },
-    {
-      "v": "2_AND",
-      "w": "9_OR",
-      "value": {
-        "outPort": "and",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "6_AND",
-      "w": "9_OR",
-      "value": {
-        "outPort": "and",
-        "inPort": "i2"
-      }
-    },
-    {
-      "v": "8_AND",
-      "w": "10_OR",
-      "value": {
-        "outPort": "and",
-        "inPort": "i1"
-      }
-    },
-    {
-      "v": "9_OR",
-      "w": "10_OR",
-      "value": {
-        "outPort": "or",
-        "inPort": "i2"
-      }
-    },
-    {
-      "v": "10_OR",
-      "w": "11_NOT",
-      "value": {
-        "outPort": "or",
-        "inPort": "input"
-      }
-    },
-    {
-      "v": "2_AND",
-      "w": "12_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "12_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "skip"
-      }
-    },
-    {
-      "v": "2_AND",
-      "w": "13_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "13_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "a"
-      }
-    },
-    {
-      "v": "2_AND",
-      "w": "14_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "14_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "b"
-      }
-    },
-    {
-      "v": "PARENT",
-      "w": "15_DEMUX",
-      "value": {
-        "outPort": "a1",
-        "inPort": "input"
-      }
-    },
-    {
-      "v": "6_AND",
-      "w": "15_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "15_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "skip"
-      }
-    },
-    {
-      "v": "6_AND",
-      "w": "16_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "16_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "a"
-      }
-    },
-    {
-      "v": "6_AND",
-      "w": "17_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "17_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "b"
-      }
-    },
-    {
-      "v": "PARENT",
-      "w": "18_DEMUX",
-      "value": {
-        "outPort": "a2",
-        "inPort": "input"
-      }
-    },
-    {
-      "v": "8_AND",
-      "w": "18_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "18_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "skip"
-      }
-    },
-    {
-      "v": "8_AND",
-      "w": "19_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "19_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "a"
-      }
-    },
-    {
-      "v": "8_AND",
-      "w": "20_DEMUX",
-      "value": {
-        "outPort": "and",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "20_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "b"
-      }
-    },
-    {
-      "v": "11_NOT",
-      "w": "21_DEMUX",
-      "value": {
-        "outPort": "output",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "21_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "skip"
-      }
-    },
-    {
-      "v": "PARENT",
-      "w": "22_DEMUX",
-      "value": {
-        "outPort": "a1",
-        "inPort": "input"
-      }
-    },
-    {
-      "v": "11_NOT",
-      "w": "22_DEMUX",
-      "value": {
-        "outPort": "output",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "22_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "a"
-      }
-    },
-    {
-      "v": "PARENT",
-      "w": "23_DEMUX",
-      "value": {
-        "outPort": "a2",
-        "inPort": "input"
-      }
-    },
-    {
-      "v": "11_NOT",
-      "w": "23_DEMUX",
-      "value": {
-        "outPort": "output",
-        "inPort": "control"
-      }
-    },
-    {
-      "v": "23_DEMUX",
-      "w": "PARENT",
-      "value": {
-        "outPort": "outTrue",
-        "inPort": "b"
-      }
-    }
-  ]
+  "edges": []
 }

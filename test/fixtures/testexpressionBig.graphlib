@@ -6,36 +6,36 @@
   },
   "nodes": [
   {
-    "v": "PARENT",
+    "v": "match_1",
     "value": {
       "rules" : [
         {
-          "inputs": [{"type" : "constant", "value/const" : 1, "name": "a1"},
-          {"type" : "constant", "value/const" : 1, "name": "a2"}],
-          "outputs": [{"type" : "constant", "value/const" : 1, "name": "skip"},
-          {"type" : "constant", "value/const" : 0, "name": "a"},
-          {"type" : "constant", "value/const" : 0, "name": "b"}]
+          "inputs": [{"variable" : false, "type": "number", "value/const" : 1, "name": "a1"},
+          {"variable" : false, "type" : "number", "value/const" : 1, "name": "a2"}],
+          "outputs": [{"variable" : false, "type" : "number", "value/const" : 1, "name": "skip"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "a"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "b"}]
         },
         {
-          "inputs": [{"type" : "variable", "value" : "a", "name": "a1"},
-          {"type" : "constant", "value/const" : 1, "name": "a2"}],
-          "outputs": [{"type" : "variable", "value" : "a", "name": "skip"},
-          {"type" : "constant", "value/const" : 0, "name": "a"},
-          {"type" : "constant", "value/const" : 0, "name": "b"}]
+          "inputs": [{"variable" : true, "type" : "number", "value" : "a", "name": "a1"},
+          {"variable" : false, "type" : "number", "value/const" : 1, "name": "a2"}],
+          "outputs": [{"variable" : true, "type" : "number", "value" : "a", "name": "skip"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "a"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "b"}]
         },
         {
-          "inputs": [{"type" : "constant", "value/const" : 1, "name": "a1"},
-          {"type" : "variable", "value" : "b", "name": "a2"}],
-          "outputs": [{"type" : "variable", "value" : "b", "name": "skip"},
-          {"type" : "constant", "value/const" : 0, "name": "a"},
-          {"type" : "constant", "value/const" : 0, "name": "b"}]
+          "inputs": [{"variable" : false, "type" : "number", "value/const" : 1, "name": "a1"},
+          {"variable" : true, "type" : "number", "value" : "b", "name": "a2"}],
+          "outputs": [{"variable" : true, "type" : "number", "value" : "b", "name": "skip"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "a"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "b"}]
         },
         {
-          "inputs": [{"type" : "variable", "value" : "a", "name": "a1"},
-          {"type" : "variable", "value" : "b", "name": "a2"}],
-          "outputs": [{"type" : "constant", "value/const" : 0, "name": "skip"},
-          {"type" : "variable", "value" : "a", "name": "a"},
-          {"type" : "variable", "value" : "b", "name": "b"}]
+          "inputs": [{"variable" : true, "type" : "number", "value" : "a", "name": "a1"},
+          {"variable" : true, "type" : "number", "value" : "b", "name": "a2"}],
+          "outputs": [{"variable" : false, "type" : "number", "value/const" : 0, "name": "skip"},
+          {"variable" : true, "type" : "number", "value" : "a", "name": "a"},
+          {"variable" : true, "type" : "number", "value" : "b", "name": "b"}]
         }
       ]
     }
