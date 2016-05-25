@@ -8,6 +8,7 @@
     {
       "v": "match_0",
       "value": {
+        "id": "match_0",
         "rules": [
           {
             "inputs": [
@@ -73,199 +74,152 @@
           "a1": "number"
         },
         "implementation": {
-          "options": {
-            "directed": true,
-            "multigraph": true,
-            "compound": true
-          },
           "nodes": [
             {
-              "v": "0_EQUAL",
-              "value": {
-                "nodeType": "process",
-                "meta": "logic/equal",
-                "type": "atomic",
-                "values": [
-                  {
-                    "value": 1,
-                    "port": "i2"
-                  }
-                ]
-              },
-              "parent": "match_0"
+              "name": "0_EQUAL",
+              "meta": "logic/equal"
             },
             {
-              "v": "match_0"
+              "name": "1_CONST",
+              "meta": "math/const",
+              "params": {
+                "value": 1
+              }
             },
             {
-              "v": "a0"
+              "name": "2_EQUAL",
+              "meta": "logic/equal"
             },
             {
-              "v": "1_EQUAL",
-              "value": {
-                "nodeType": "process",
-                "meta": "logic/equal",
-                "type": "atomic",
-                "values": [
-                  {
-                    "value": 0,
-                    "port": "i2"
-                  }
-                ]
-              },
-              "parent": "match_0"
+              "name": "3_CONST",
+              "meta": "math/const",
+              "params": {
+                "value": 0
+              }
             },
             {
-              "v": "2_OR",
-              "value": {
-                "nodeType": "process",
-                "meta": "logic/or",
-                "type": "atomic"
-              },
-              "parent": "match_0"
+              "name": "4_OR",
+              "meta": "logic/or"
             },
             {
-              "v": "3_NOT",
-              "value": {
-                "nodeType": "process",
-                "meta": "logic/not",
-                "type": "atomic"
-              },
-              "parent": "match_0"
+              "name": "5_NOT",
+              "meta": "logic/not"
             },
             {
-              "v": "4_DEMUX",
-              "value": {
-                "nodeType": "process",
-                "meta": "logic/demux",
-                "type": "atomic",
-                "values": [
-                  {
-                    "value": 1,
-                    "port": "input"
-                  }
-                ]
-              },
-              "parent": "match_0"
+              "name": "6_DEMUX",
+              "meta": "logic/demux"
             },
             {
-              "v": "a1"
+              "name": "7_CONST",
+              "meta": "math/const",
+              "params": {
+                "value": 1
+              }
             },
             {
-              "v": "5_DEMUX",
-              "value": {
-                "nodeType": "process",
-                "meta": "logic/demux",
-                "type": "atomic",
-                "values": [
-                  {
-                    "value": 0,
-                    "port": "input"
-                  }
-                ]
-              },
-              "parent": "match_0"
+              "name": "8_CONSUME",
+              "meta": "control/consume"
             },
             {
-              "v": "6_DEMUX",
-              "value": {
-                "nodeType": "process",
-                "meta": "logic/demux",
-                "type": "atomic"
-              },
-              "parent": "match_0"
+              "name": "9_DEMUX",
+              "meta": "logic/demux"
+            },
+            {
+              "name": "10_CONST",
+              "meta": "math/const",
+              "params": {
+                "value": 0
+              }
+            },
+            {
+              "name": "11_CONSUME",
+              "meta": "control/consume"
+            },
+            {
+              "name": "12_DEMUX",
+              "meta": "logic/demux"
+            },
+            {
+              "name": "13_CONSUME",
+              "meta": "control/consume"
             }
           ],
           "edges": [
             {
-              "v": "a0",
-              "w": "0_EQUAL",
-              "value": {
-                "inPort": "i1"
-              }
+              "from": "a0",
+              "to": "0_EQUAL:i1"
             },
             {
-              "v": "a0",
-              "w": "1_EQUAL",
-              "value": {
-                "inPort": "i1"
-              }
+              "from": "1_CONST:output",
+              "to": "0_EQUAL:i2"
             },
             {
-              "v": "0_EQUAL",
-              "w": "2_OR",
-              "value": {
-                "outPort": "eq",
-                "inPort": "i1"
-              }
+              "from": "a0",
+              "to": "2_EQUAL:i1"
             },
             {
-              "v": "1_EQUAL",
-              "w": "2_OR",
-              "value": {
-                "outPort": "eq",
-                "inPort": "i2"
-              }
+              "from": "3_CONST:output",
+              "to": "2_EQUAL:i2"
             },
             {
-              "v": "2_OR",
-              "w": "3_NOT",
-              "value": {
-                "outPort": "or",
-                "inPort": "input"
-              }
+              "from": "0_EQUAL:eq",
+              "to": "4_OR:i1"
             },
             {
-              "v": "0_EQUAL",
-              "w": "4_DEMUX",
-              "value": {
-                "outPort": "eq",
-                "inPort": "control"
-              }
+              "from": "2_EQUAL: eq",
+              "to": "4_OR:i2"
             },
             {
-              "v": "4_DEMUX",
-              "w": "a1",
-              "value": {
-                "outPort": "outTrue"
-              }
+              "from": "4_OR:or",
+              "to": "5_NOT:input"
             },
             {
-              "v": "1_EQUAL",
-              "w": "5_DEMUX",
-              "value": {
-                "outPort": "eq",
-                "inPort": "control"
-              }
+              "from": "7_CONST:output",
+              "to": "6_DEMUX:input"
             },
             {
-              "v": "5_DEMUX",
-              "w": "a1",
-              "value": {
-                "outPort": "outTrue"
-              }
+              "from": "0_EQUAL:eq",
+              "to": "6_DEMUX:control"
             },
             {
-              "v": "a0",
-              "w": "6_DEMUX",
-              "value": {
-                "inPort": "input"
-              }
+              "from": "6_DEMUX:outTrue",
+              "to": "a1"
             },
             {
-              "v": "3_NOT",
-              "w": "6_DEMUX",
-              "value": {
-                "outPort": "output",
-                "inPort": "control"
-              }
+              "from": "6_DEMUX:outFalse",
+              "to": "8_CONSUME:all"
             },
             {
-              "v": "6_DEMUX",
-              "w": "a1",
-              "value": {
-                "outPort": "outTrue"
-              }
+              "from": "10_CONST:output",
+              "to": "9_DEMUX:input"
+            },
+            {
+              "from": "2_EQUAL:eq",
+              "to": "9_DEMUX:control"
+            },
+            {
+              "from": "9_DEMUX:outTrue",
+              "to": "a1"
+            },
+            {
+              "from": "9_DEMUX:outFalse",
+              "to": "11_CONSUME:all"
+            },
+            {
+              "from": "a0",
+              "to": "12_DEMUX:input"
+            },
+            {
+              "from": "5_NOT:output",
+              "to": "12_DEMUX:control"
+            },
+            {
+              "from": "12_DEMUX:outTrue",
+              "to": "a1"
+            },
+            {
+              "from": "12_DEMUX:outFalse",
+              "to": "13_CONSUME:all"
             }
           ]
         }
