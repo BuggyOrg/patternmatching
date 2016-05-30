@@ -140,7 +140,7 @@ export function convert (expression) {
           // innerGraph.setNode(nodeDemux, {nodeType: 'process', meta: 'logic/demux', type: 'atomic'})
           var inports = ruleTriple[ru]['rule']['inputs']
           for (var i = 0; i < inports.length; i++) {
-            if (inports[i]['value'] === outports[outport]['value']) {
+            if (inports[i].value === outports[outport].value || (inports[i].value !== undefined && inports[i].value.val === outports[outport].value)) {
               innerGraph.edges.push({'from': inports[i]['name'], 'to': nodeDemux + ':' + getInputs(nodesObj, 'logic/demux')[0]})
               // innerGraph.setEdge(inports[i]['name'], nodeDemux, {'inPort': getInputs(nodesObj, 'logic/demux')[0]})
               graph.node(matchNode).inputPorts[inports[i]['name']] = inports[i]['type']

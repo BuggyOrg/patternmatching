@@ -7,6 +7,7 @@ var fs = require('fs')
 
 var expressionBig = grlib.json.read(JSON.parse(fs.readFileSync('test/fixtures/testexpressionBig.graphlib')))
 var expression = grlib.json.read(JSON.parse(fs.readFileSync('test/fixtures/testexpression.graphlib')))
+var expressionLisgy = grlib.json.read(JSON.parse(fs.readFileSync('test/fixtures/testLisgy.graphlib')))
 
 describe('Pattern Matching', () => {
   it('Fibonacci expression', function () {
@@ -14,7 +15,7 @@ describe('Pattern Matching', () => {
       patternMatching.convert(expression)
     ]).then((result) => {
       var d = result[0]
-      fs.writeFileSync('test/fixtures/testgraph.graphlib', JSON.stringify(grlib.json.write(d), null, 2))
+      // fs.writeFileSync('test/fixtures/testgraph.graphlib', JSON.stringify(grlib.json.write(d), null, 2))
       var curGraph = grlib.json.write(d)
       var cmpGraph = JSON.parse(fs.readFileSync('test/fixtures/testgraph.graphlib'))
 
@@ -27,11 +28,24 @@ describe('Pattern Matching', () => {
       patternMatching.convert(expressionBig)
     ]).then((result) => {
       var dBig = result[0]
-      fs.writeFileSync('test/fixtures/testgraphBig.graphlib', JSON.stringify(grlib.json.write(dBig), null, 2))
+      // fs.writeFileSync('test/fixtures/testgraphBig.graphlib', JSON.stringify(grlib.json.write(dBig), null, 2))
       var curGraphBig = grlib.json.write(dBig)
       var cmpGraphBig = JSON.parse(fs.readFileSync('test/fixtures/testgraphBig.graphlib'))
 
       expect(curGraphBig).to.deep.equal(cmpGraphBig)
+    })
+  })
+
+  it('Expression from Lisgy', function () {
+    return Promise.all([
+      patternMatching.convert(expressionLisgy)
+    ]).then((result) => {
+      var exp = result[0]
+      // fs.writeFileSync('test/fixtures/testLisgy_result.graphlib', JSON.stringify(grlib.json.write(exp), null, 2))
+      var curGraph = grlib.json.write(exp)
+      var cmpGraph = JSON.parse(fs.readFileSync('test/fixtures/testLisgy_result.graphlib'))
+
+      expect(curGraph).to.deep.equal(cmpGraph)
     })
   })
 })
