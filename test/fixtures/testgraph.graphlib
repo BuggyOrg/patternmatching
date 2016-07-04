@@ -6,65 +6,8 @@
   },
   "nodes": [
     {
-      "v": "match_0",
+      "v": "match_rules_0",
       "value": {
-        "id": "match_0",
-        "rules": [
-          {
-            "inputs": [
-              {
-                "variable": false,
-                "type": "number",
-                "value/const": 1,
-                "name": "a0"
-              }
-            ],
-            "outputs": [
-              {
-                "variable": false,
-                "type": "number",
-                "value/const": 1,
-                "name": "a1"
-              }
-            ]
-          },
-          {
-            "inputs": [
-              {
-                "variable": true,
-                "type": "number",
-                "value": "n",
-                "name": "a0"
-              }
-            ],
-            "outputs": [
-              {
-                "variable": true,
-                "type": "number",
-                "value": "n",
-                "name": "a1"
-              }
-            ]
-          },
-          {
-            "inputs": [
-              {
-                "variable": false,
-                "type": "number",
-                "value/const": 0,
-                "name": "a0"
-              }
-            ],
-            "outputs": [
-              {
-                "variable": false,
-                "type": "number",
-                "value/const": 0,
-                "name": "a1"
-              }
-            ]
-          }
-        ],
         "nodeType": "process",
         "atomic": false,
         "inputPorts": {

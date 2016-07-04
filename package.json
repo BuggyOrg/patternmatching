@@ -1,8 +1,8 @@
 {
-  "name": "pattern-matching",
+  "name": "@buggyorg/patternmatching",
   "version": "0.0.0",
   "description": "Parse assignment and create a graph representation.'",
-  "main": "index.js",
+  "main": "lib/pattern-matching.js",
   "scripts": {
     "test": "node node_modules/standard/bin/cmd.js src/**/*.js && babel src -d lib && node_modules/mocha/bin/mocha --compilers js:babel-register"
   },

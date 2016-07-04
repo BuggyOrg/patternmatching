@@ -7,7 +7,6 @@ var fs = require('fs')
 var expressionBig = JSON.parse(fs.readFileSync('test/fixtures/testexpressionBig.graphlib'))
 var expression = JSON.parse(fs.readFileSync('test/fixtures/testexpression.graphlib'))
 var expressionLisgy = JSON.parse(fs.readFileSync('test/fixtures/testLisgy.graphlib'))
-var expressionLisgy_fnIn = JSON.parse(fs.readFileSync('test/fixtures/testLisgy_fnIn.graphlib'))
 
 describe('Pattern Matching', () => {
   it('Fibonacci expression', function () {
@@ -36,16 +35,11 @@ describe('Pattern Matching', () => {
 
   it('Expression from Lisgy', function () {
     return Promise.all([
-      patternMatching.convert(expressionLisgy), patternMatching.convert(expressionLisgy_fnIn)
+      patternMatching.convert(expressionLisgy)
     ]).then((result) => {
       var curGraph = result[0]
-      // fs.writeFileSync('test/fixtures/testLisgy_result.graphlib', JSON.stringify(curGraph, null, 2))
+      fs.writeFileSync('test/fixtures/testLisgy_result.graphlib', JSON.stringify(curGraph, null, 2))
       var cmpGraph = JSON.parse(fs.readFileSync('test/fixtures/testLisgy_result.graphlib'))
-      expect(curGraph).to.deep.equal(cmpGraph)
-
-      curGraph = result[1]
-      // fs.writeFileSync('test/fixtures/testLisgy_fnIn_result.graphlib', JSON.stringify(curGraph, null, 2))
-      cmpGraph = JSON.parse(fs.readFileSync('test/fixtures/testLisgy_fnIn_result.graphlib'))
       expect(curGraph).to.deep.equal(cmpGraph)
     })
   })
