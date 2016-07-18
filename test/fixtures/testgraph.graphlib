@@ -6,8 +6,9 @@
   },
   "nodes": [
     {
-      "v": "match_rules_0",
+      "v": "mrules_0",
       "value": {
+        "id": "mrules_0",
         "nodeType": "process",
         "atomic": false,
         "inputPorts": {

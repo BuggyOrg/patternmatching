@@ -38,7 +38,7 @@ describe('Pattern Matching', () => {
       patternMatching.convert(expressionLisgy)
     ]).then((result) => {
       var curGraph = result[0]
-      fs.writeFileSync('test/fixtures/testLisgy_result.graphlib', JSON.stringify(curGraph, null, 2))
+      // fs.writeFileSync('test/fixtures/testLisgy_result.graphlib', JSON.stringify(curGraph, null, 2))
       var cmpGraph = JSON.parse(fs.readFileSync('test/fixtures/testLisgy_result.graphlib'))
       expect(curGraph).to.deep.equal(cmpGraph)
     })

@@ -30,7 +30,6 @@ var nodesIds = [
 ]
 
 export function convert (expression) {
-  console.log('pattern_match')
   var nodesPromise = nodesIds.map(node => {
     return compLib.get(node.id, node.version)
   })
@@ -55,16 +54,17 @@ function convertNode (node, nodesObj) {
       node.value.implementation.nodes[i] = convertNode(node.value.implementation.nodes[i], nodesObj)
     }
   }
-  if ((node.name !== undefined && node.name.includes('match_rules')) || (node.v !== undefined && node.v.includes('match_rules'))) {
+  if ((node.name !== undefined && node.name.includes('mrules')) || (node.v !== undefined && node.v.includes('mrules'))) {
     var matchNode = node
     var newMatchNode = {}
     newMatchNode['v'] = matchNode.v || matchNode.name
     newMatchNode['value'] = {}
     var allRules = matchNode.rules || matchNode.value.rules
+    newMatchNode['value']['id'] = matchNode.id || matchNode.value.id || newMatchNode['v']
     newMatchNode['value']['nodeType'] = 'process'
     newMatchNode['value']['atomic'] = false
-    newMatchNode['value']['inputPorts'] = matchNode.inputPorts || {}
-    newMatchNode['value']['outputPorts'] = matchNode.outputPorts || {}
+    newMatchNode['value']['inputPorts'] = matchNode.inputPorts || matchNode.value.inputPorts || {}
+    newMatchNode['value']['outputPorts'] = matchNode.outputPorts || matchNode.value.outputPorts || {}
     newMatchNode['value']['implementation'] = {}
     var innerGraph = {'nodes': [], 'edges': []}
     // var innerGraph = new grlib.Graph({directed: true, compound: true, multigraph: true})
