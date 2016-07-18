@@ -110,7 +110,7 @@
               "to": "4_OR:i1"
             },
             {
-              "from": "2_EQUAL: eq",
+              "from": "2_EQUAL:eq",
               "to": "4_OR:i2"
             },
             {

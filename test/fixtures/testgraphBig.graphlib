@@ -273,7 +273,7 @@
               "to": "4_AND:i1"
             },
             {
-              "from": "2_EQUAL: eq",
+              "from": "2_EQUAL:eq",
               "to": "4_AND:i2"
             },
             {
@@ -321,7 +321,7 @@
               "to": "13_OR:i1"
             },
             {
-              "from": "10_AND: and",
+              "from": "10_AND:and",
               "to": "13_OR:i2"
             },
             {

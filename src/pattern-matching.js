@@ -67,7 +67,6 @@ function convertNode (node, nodesObj) {
     newMatchNode['value']['outputPorts'] = matchNode.outputPorts || matchNode.value.outputPorts || {}
     newMatchNode['value']['implementation'] = {}
     var innerGraph = {'nodes': [], 'edges': []}
-    // var innerGraph = new grlib.Graph({directed: true, compound: true, multigraph: true})
     var nodeId = 0
     var res
     var ruleTriple = []
@@ -145,22 +144,17 @@ function convertNode (node, nodesObj) {
           nodeId++
           innerGraph.nodes.push({'name': nodeConst, 'meta': 'math/const', 'params': {'value': outports[outport]['value/const']}})
           innerGraph.edges.push({'from': nodeConst + ':' + getOutputs(nodesObj, 'math/const')[0], 'to': nodeDemux + ':' + getInputs(nodesObj, 'logic/demux')[0]})
-          // innerGraph.setNode(nodeDemux, {nodeType: 'process', meta: 'logic/demux', type: 'atomic', values: [{'value': outports[outport]['value/const'], 'port': getInputs(nodesObj, 'logic/demux')[0]}]})
         } else {
           innerGraph.nodes.push({'name': nodeDemux, 'meta': 'logic/demux'})
-          // innerGraph.setNode(nodeDemux, {nodeType: 'process', meta: 'logic/demux', type: 'atomic'})
           var inports = ruleTriple[ru]['rule']['inputs']
           for (let i = 0; i < inports.length; i++) {
             if (inports[i].value === outports[outport].value) {
               innerGraph.edges.push({'from': inports[i]['name'], 'to': nodeDemux + ':' + getInputs(nodesObj, 'logic/demux')[0]})
-              // innerGraph.setEdge(inports[i]['name'], nodeDemux, {'inPort': getInputs(nodesObj, 'logic/demux')[0]})
               newMatchNode.value.inputPorts[inports[i]['name']] = inports[i]['type']
             }
           }
         }
-        // innerGraph.setParent(nodeDemux, matchNode)
         innerGraph.edges.push({'from': ruleTriple[ru]['endBoolNode'] + ':' + getOutputs(nodesObj, getMeta(innerGraph.nodes, ruleTriple[ru]['endBoolNode']))[0], 'to': nodeDemux + ':' + getInputs(nodesObj, 'logic/demux')[1]})
-        // innerGraph.setEdge(ruleTriple[ru]['endBoolNode'], nodeDemux, {'outPort': getOutputs(nodesObj, innerGraph.node(ruleTriple[ru]['endBoolNode'])['meta'])[0], 'inPort': getInputs(nodesObj, 'logic/demux')[1]})
         innerGraph.edges.push({'from': nodeDemux + ':' + getOutputs(nodesObj, 'logic/demux')[0], 'to': outports[outport]['name']})
         var nodeConsume = nodeId + '_CONSUME'
         nodeId++
@@ -196,7 +190,7 @@ function createAtomics (inputs, nodeId, innerGraph, nodeName, nodesObj) {
   nodeId++
   innerGraph.nodes.push({'name': node, 'meta': 'logic/' + nodeName.toLowerCase()})
   innerGraph.edges.push({'from': inputs[0] + ':' + getOutputs(nodesObj, getMeta(innerGraph.nodes, inputs[0]))[0], 'to': node + ':' + getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[0]})
-  innerGraph.edges.push({'from': inputs[1] + ': ' + getOutputs(nodesObj, getMeta(innerGraph.nodes, inputs[1]))[0], 'to': node + ':' + getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[1]})
+  innerGraph.edges.push({'from': inputs[1] + ':' + getOutputs(nodesObj, getMeta(innerGraph.nodes, inputs[1]))[0], 'to': node + ':' + getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[1]})
   for (var i = 2; i < inputs.length; i++) {
     var newNode = nodeId + '_' + nodeName
     nodeId++
