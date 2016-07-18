@@ -326,7 +326,7 @@
             },
             {
               "from": "12_AND:and",
-              "to": "14_ORi1"
+              "to": "14_OR:i1"
             },
             {
               "from": "13_OR:or",

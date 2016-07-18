@@ -195,7 +195,7 @@ function createAtomics (inputs, nodeId, innerGraph, nodeName, nodesObj) {
     var newNode = nodeId + '_' + nodeName
     nodeId++
     innerGraph.nodes.push({'name': newNode, 'meta': 'logic/' + nodeName.toLowerCase()})
-    innerGraph.edges.push({'from': inputs[i] + ':' + getOutputs(nodesObj, getMeta(innerGraph.nodes, inputs[i]))[0], 'to': newNode + getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[0]})
+    innerGraph.edges.push({'from': inputs[i] + ':' + getOutputs(nodesObj, getMeta(innerGraph.nodes, inputs[i]))[0], 'to': newNode + ':' + getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[0]})
     innerGraph.edges.push({'from': node + ':' + getOutputs(nodesObj, 'logic/' + nodeName.toLowerCase())[0], 'to': newNode + ':' + getInputs(nodesObj, 'logic/' + nodeName.toLowerCase())[1]})
     node = newNode
   }
