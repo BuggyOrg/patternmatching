@@ -10,16 +10,16 @@
     "value": {
       "rules" : [
         {
-          "inputs": [{"variable": false, "type" : "number", "value/const" : 1, "name": "a0"}],
-          "outputs": [{"variable": false, "type" : "number", "value/const" : 1, "name": "a1"}]
+          "inputs": [{"variable": false, "type" : "number", "value/const" : 1, "name": "n"}],
+          "outputs": [{"variable": false, "type" : "number", "value/const" : 1, "name": "out"}]
         },
         {
-          "inputs": [{"variable": true, "type" : "number", "value" : "n", "name": "a0"}],
-          "outputs": [{"variable": true, "type" : "number", "value" : "n", "name": "a1"}]
+          "inputs": [{"variable": true, "type" : "number", "value" : "n", "name": "n"}],
+          "outputs": [{"variable": true, "type" : "number", "value" : "n", "name": "out"}]
         },
         {
-          "inputs": [{"variable": false, "type" : "number", "value/const" : 0, "name": "a0"}],
-          "outputs": [{"variable": false, "type" : "number", "value/const" : 0, "name": "a1"}]
+          "inputs": [{"variable": false, "type" : "number", "value/const" : 0, "name": "n"}],
+          "outputs": [{"variable": false, "type" : "number", "value/const" : 0, "name": "out"}]
         }
       ]
     }

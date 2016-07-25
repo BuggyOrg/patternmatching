@@ -10,32 +10,32 @@
     "value": {
       "rules" : [
         {
-          "inputs": [{"variable" : false, "type": "number", "value/const" : 1, "name": "a1"},
-          {"variable" : false, "type" : "number", "value/const" : 1, "name": "a2"}],
+          "inputs": [{"variable" : false, "type": "number", "value/const" : 1, "name": "a"},
+          {"variable" : false, "type" : "number", "value/const" : 1, "name": "b"}],
           "outputs": [{"variable" : false, "type" : "number", "value/const" : 1, "name": "skip"},
-          {"variable" : false, "type" : "number", "value/const" : 0, "name": "a"},
-          {"variable" : false, "type" : "number", "value/const" : 0, "name": "b"}]
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "outA"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "outB"}]
         },
         {
-          "inputs": [{"variable" : true, "type" : "number", "value" : "a", "name": "a1"},
-          {"variable" : false, "type" : "number", "value/const" : 1, "name": "a2"}],
+          "inputs": [{"variable" : true, "type" : "number", "value" : "a", "name": "a"},
+          {"variable" : false, "type" : "number", "value/const" : 1, "name": "b"}],
           "outputs": [{"variable" : true, "type" : "number", "value" : "a", "name": "skip"},
-          {"variable" : false, "type" : "number", "value/const" : 0, "name": "a"},
-          {"variable" : false, "type" : "number", "value/const" : 0, "name": "b"}]
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "outA"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "outB"}]
         },
         {
-          "inputs": [{"variable" : false, "type" : "number", "value/const" : 1, "name": "a1"},
-          {"variable" : true, "type" : "number", "value" : "b", "name": "a2"}],
+          "inputs": [{"variable" : false, "type" : "number", "value/const" : 1, "name": "a"},
+          {"variable" : true, "type" : "number", "value" : "b", "name": "b"}],
           "outputs": [{"variable" : true, "type" : "number", "value" : "b", "name": "skip"},
-          {"variable" : false, "type" : "number", "value/const" : 0, "name": "a"},
-          {"variable" : false, "type" : "number", "value/const" : 0, "name": "b"}]
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "outA"},
+          {"variable" : false, "type" : "number", "value/const" : 0, "name": "outB"}]
         },
         {
-          "inputs": [{"variable" : true, "type" : "number", "value" : "a", "name": "a1"},
-          {"variable" : true, "type" : "number", "value" : "b", "name": "a2"}],
+          "inputs": [{"variable" : true, "type" : "number", "value" : "a", "name": "a"},
+          {"variable" : true, "type" : "number", "value" : "b", "name": "b"}],
           "outputs": [{"variable" : false, "type" : "number", "value/const" : 0, "name": "skip"},
-          {"variable" : true, "type" : "number", "value" : "a", "name": "a"},
-          {"variable" : true, "type" : "number", "value" : "b", "name": "b"}]
+          {"variable" : true, "type" : "number", "value" : "a", "name": "outA"},
+          {"variable" : true, "type" : "number", "value" : "b", "name": "outB"}]
         }
       ]
     }

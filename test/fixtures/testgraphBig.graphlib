@@ -12,13 +12,13 @@
         "nodeType": "process",
         "atomic": false,
         "inputPorts": {
-          "a1": "number",
-          "a2": "number"
+          "a": "number",
+          "b": "number"
         },
         "outputPorts": {
           "skip": "number",
-          "a": "number",
-          "b": "number"
+          "outA": "number",
+          "outB": "number"
         },
         "implementation": {
           "nodes": [
@@ -253,7 +253,7 @@
           ],
           "edges": [
             {
-              "from": "a1",
+              "from": "a",
               "to": "0_EQUAL:i1"
             },
             {
@@ -261,7 +261,7 @@
               "to": "0_EQUAL:i2"
             },
             {
-              "from": "a2",
+              "from": "b",
               "to": "2_EQUAL:i1"
             },
             {
@@ -277,7 +277,7 @@
               "to": "4_AND:i2"
             },
             {
-              "from": "a2",
+              "from": "b",
               "to": "5_EQUAL:i1"
             },
             {
@@ -285,7 +285,7 @@
               "to": "5_EQUAL:i2"
             },
             {
-              "from": "a1",
+              "from": "a",
               "to": "7_EQUAL:i1"
             },
             {
@@ -362,7 +362,7 @@
             },
             {
               "from": "19_DEMUX:outTrue",
-              "to": "a"
+              "to": "outA"
             },
             {
               "from": "19_DEMUX:outFalse",
@@ -378,14 +378,14 @@
             },
             {
               "from": "22_DEMUX:outTrue",
-              "to": "b"
+              "to": "outB"
             },
             {
               "from": "22_DEMUX:outFalse",
               "to": "24_CONSUME:all"
             },
             {
-              "from": "a1",
+              "from": "a",
               "to": "25_DEMUX:input"
             },
             {
@@ -410,7 +410,7 @@
             },
             {
               "from": "27_DEMUX:outTrue",
-              "to": "a"
+              "to": "outA"
             },
             {
               "from": "27_DEMUX:outFalse",
@@ -426,14 +426,14 @@
             },
             {
               "from": "30_DEMUX:outTrue",
-              "to": "b"
+              "to": "outB"
             },
             {
               "from": "30_DEMUX:outFalse",
               "to": "32_CONSUME:all"
             },
             {
-              "from": "a2",
+              "from": "b",
               "to": "33_DEMUX:input"
             },
             {
@@ -458,7 +458,7 @@
             },
             {
               "from": "35_DEMUX:outTrue",
-              "to": "a"
+              "to": "outA"
             },
             {
               "from": "35_DEMUX:outFalse",
@@ -474,7 +474,7 @@
             },
             {
               "from": "38_DEMUX:outTrue",
-              "to": "b"
+              "to": "outB"
             },
             {
               "from": "38_DEMUX:outFalse",
@@ -497,7 +497,7 @@
               "to": "43_CONSUME:all"
             },
             {
-              "from": "a1",
+              "from": "a",
               "to": "44_DEMUX:input"
             },
             {
@@ -506,14 +506,14 @@
             },
             {
               "from": "44_DEMUX:outTrue",
-              "to": "a"
+              "to": "outA"
             },
             {
               "from": "44_DEMUX:outFalse",
               "to": "45_CONSUME:all"
             },
             {
-              "from": "a2",
+              "from": "b",
               "to": "46_DEMUX:input"
             },
             {
@@ -522,7 +522,7 @@
             },
             {
               "from": "46_DEMUX:outTrue",
-              "to": "b"
+              "to": "outB"
             },
             {
               "from": "46_DEMUX:outFalse",

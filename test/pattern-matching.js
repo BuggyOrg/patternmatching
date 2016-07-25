@@ -43,4 +43,15 @@ describe('Pattern Matching', () => {
       expect(curGraph).to.deep.equal(cmpGraph)
     })
   })
+
+  it('Expression from buggy-cli', function () {
+    return Promise.all([
+      patternMatching.convert(JSON.parse(fs.readFileSync('test/fixtures/test.json')))
+    ]).then((result) => {
+      var curGraph = result[0]
+      fs.writeFileSync('test/fixtures/test_result.graphlib', JSON.stringify(curGraph, null, 2))
+      var cmpGraph = JSON.parse(fs.readFileSync('test/fixtures/test_result.graphlib'))
+      expect(curGraph).to.deep.equal(cmpGraph)
+    })
+  })
 })

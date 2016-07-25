@@ -12,10 +12,10 @@
         "nodeType": "process",
         "atomic": false,
         "inputPorts": {
-          "a0": "number"
+          "n": "number"
         },
         "outputPorts": {
-          "a1": "number"
+          "out": "number"
         },
         "implementation": {
           "nodes": [
@@ -90,7 +90,7 @@
           ],
           "edges": [
             {
-              "from": "a0",
+              "from": "n",
               "to": "0_EQUAL:i1"
             },
             {
@@ -98,7 +98,7 @@
               "to": "0_EQUAL:i2"
             },
             {
-              "from": "a0",
+              "from": "n",
               "to": "2_EQUAL:i1"
             },
             {
@@ -127,7 +127,7 @@
             },
             {
               "from": "6_DEMUX:outTrue",
-              "to": "a1"
+              "to": "out"
             },
             {
               "from": "6_DEMUX:outFalse",
@@ -143,14 +143,14 @@
             },
             {
               "from": "9_DEMUX:outTrue",
-              "to": "a1"
+              "to": "out"
             },
             {
               "from": "9_DEMUX:outFalse",
               "to": "11_CONSUME:all"
             },
             {
-              "from": "a0",
+              "from": "n",
               "to": "12_DEMUX:input"
             },
             {
@@ -159,7 +159,7 @@
             },
             {
               "from": "12_DEMUX:outTrue",
-              "to": "a1"
+              "to": "out"
             },
             {
               "from": "12_DEMUX:outFalse",
