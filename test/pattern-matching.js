@@ -46,7 +46,7 @@ describe('Pattern Matching', () => {
 
   it('Expression from buggy-cli', function () {
     return Promise.all([
-      patternMatching.convert(JSON.parse(fs.readFileSync('test/fixtures/test.json')))
+      patternMatching.convert(JSON.parse(fs.readFileSync('test/fixtures/match_fnInput.json')))
     ]).then((result) => {
       var curGraph = result[0]
       fs.writeFileSync('test/fixtures/test_result.graphlib', JSON.stringify(curGraph, null, 2))

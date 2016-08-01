@@ -146,11 +146,17 @@ function convertNode (node, nodesObj) {
           innerGraph.edges.push({'from': nodeConst + ':' + getOutputs(nodesObj, 'math/const')[0], 'to': nodeDemux + ':' + getInputs(nodesObj, 'logic/demux')[0]})
         } else {
           innerGraph.nodes.push({'name': nodeDemux, 'meta': 'logic/demux'})
-          var inports = ruleTriple[ru]['rule']['inputs']
+          /* var inports = ruleTriple[ru]['rule']['inputs']
           for (let i = 0; i < inports.length; i++) {
             if (inports[i].name === outports[outport].value) {
               innerGraph.edges.push({'from': inports[i]['name'], 'to': nodeDemux + ':' + getInputs(nodesObj, 'logic/demux')[0]})
               newMatchNode.value.inputPorts[inports[i]['name']] = inports[i]['type']
+            }
+          } */
+          var objInputs = Object.keys((newMatchNode['value']['inputPorts']))
+          for (let i = 0; i < objInputs.length; i++) {
+            if (objInputs[i] === outports[outport].value) {
+              innerGraph.edges.push({'from': objInputs[i], 'to': nodeDemux + ':' + getInputs(nodesObj, 'logic/demux')[0]})
             }
           }
         }

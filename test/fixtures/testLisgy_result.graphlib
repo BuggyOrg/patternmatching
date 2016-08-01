@@ -9,7 +9,7 @@
         "atomic": false,
         "inputPorts": {
           "m": "number",
-          "n": "generic"
+          "n": "number"
         },
         "outputPorts": {
           "out_0": "generic"
